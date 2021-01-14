@@ -8,6 +8,7 @@ trait ApiResponseTrait
 {
     public function apiCreatedDataResponse($data){
         return response()->json([
+            'status' => true,
             'data' => $data
         ], Response::HTTP_CREATED);
     }
@@ -18,12 +19,14 @@ trait ApiResponseTrait
 
     public function apiMessageResponse($message){
         return response()->json([
+            'status' => true,
             'message' => $message
         ], Response::HTTP_OK);
     }
 
     public function apiErrorResponse($message){
         return response()->json([
+            'status' => false,
             'error' => $message
         ], Response::HTTP_OK);
     }
